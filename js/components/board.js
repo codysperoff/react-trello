@@ -1,12 +1,21 @@
 import React from 'react';
-import Card from './card';
-import List from './list';
+import ListContainer from './list-container';
 
-export default function Board(props) {
-    return (
-        <div className="board">
-            <h1>{props.title}</h1>
-            <div className="lists-array">{props.lists}</div>
-        </div>
-    );
+export default class Board extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state ={
+            changed: false,
+            submitted: false
+        };
+    }
+
+    render() {
+        return (
+            <div className="board">
+            <div className="board-title">{this.props.title}</div>
+            <ListContainer title="Card List" />
+            </div>
+        );
+    }
 }
